@@ -6,34 +6,19 @@
     Web Paint by Que Tran
       </title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-      <style>
-      input[type="button"] {
-        /* background styles */
-	       position: relative;
-	        display: inline-block;
-	         padding: 0px 15px;
-	          background-color: green; /*for compatibility with older browsers*/
-	           background-image: linear-gradient(green,lightgreen);
-
-	            /* text styles */
-	             text-decoration: none;
-	              color: #fff;
-	               font-size: 10px;
-	                font-family: sans-serif;
-	                 font-weight: 10;
-      }
-      </style>
   </head>
 
 <body>
-  <input id="hex" placeholder="enter hex color"/>
-  <input id="line" placeholder="line width"/>
-  <input type="button" value="Erase" onclick="erase()"/>
-  <input type="button" value="Save" onclick="saveCanvas()"/>
-  <input type="button" value="Load" onclick="load()"/>
-  <input type="button" value="Clear Canvas" onclick="clear()"/>
-  <canvas id="draw"></canvas>
+  <div class="row">
+    <input id="hex" placeholder="enter hex color" value="#000000"/>
+    <input id="line" placeholder="line width" value="10"/>
+    <input type="button" value="Erase" onclick="erase()"/>
+    <input type="button" value="Save" onclick="saveCanvas()"/>
+    <input type="button" value="Load" onclick="load()"/>
+    <input type="button" value="Clear Canvas" onclick="clear()"/>
+    </div>
+    <canvas id="draw"></canvas>
+
   <script src="app.js"></script>
 </body>
 

@@ -1,11 +1,7 @@
-// set canvas id to variable
 var canvas = document.getElementById('draw');
-
-// get canvas 2D context and set it to the correct size
 var ctx = canvas.getContext('2d');
 resize();
 
-// resize canvas when window is resized
 function resize() {
   ctx.canvas.width = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
@@ -28,57 +24,36 @@ function setPosition(e) {
 
 function draw(e) {
   if (e.buttons !== 1) return; // if mouse is pressed.....
-
   var color = document.getElementById("hex").value;
   var width = document.getElementById("line").value;
-
-  ctx.beginPath(); // begin the drawing path
-
-  ctx.lineWidth = width; // width of line
-  ctx.lineCap = 'round'; // rounded end cap
-  ctx.strokeStyle = color; // hex color of line
-
-  ctx.moveTo(pos.x, pos.y); // from position
-  setPosition(e); // start from here
-  ctx.lineTo(pos.x, pos.y); // to position
-
-  ctx.stroke(); // draw
+  ctx.beginPath();
+  ctx.lineWidth = width;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = color;
+  ctx.moveTo(pos.x, pos.y);
+  setPosition(e);
+  ctx.lineTo(pos.x, pos.y);
+  ctx.stroke();
  }
 
-// MAKE THESE WORK!!!!!!
- // erase function?
- // how to trigger? use button
- // follow draw conventions
- // draw as white
- // how to assign white hex value automatically onclick
- function erase(){
-   var color = document.getElementById("hex").value;
+ function erase(e){
+   if (e.buttons !== 1) return;
    var width = document.getElementById("line").value;
-   document.getElementById("hex").value = #FFFFFF;
-
-   ctx.beginPath(); // begin the drawing path
-
-   ctx.lineWidth = width; // width of line
-   ctx.lineCap = 'round'; // rounded end cap
-   ctx.strokeStyle = color; // hex color of line
-
-   ctx.moveTo(pos.x, pos.y); // from position
-   setPosition(e); // start from here
-   ctx.lineTo(pos.x, pos.y); // to position
-
-   ctx.stroke(); // draw
+   ctx.beginPath();
+   ctx.lineWidth = width;
+   ctx.lineCap = "round";
+   ctx.strokeStyle = "white";
+   ctx.moveTo(pos.x, pos.y);
+   setPosition(e);
+   ctx.lineTo(pos.x, pos.y);
+   ctx.stroke();
  }
 
- // how to save to localstorage so image doesn't disappear on refresh?
- // save canvas as var
- // store somehow
- //on window load, restore saved canvas
 function saveCanvas(){
   var canvas = document.getElementById("draw");
   window.localStorage.canvasImage = canvas.toDataURL();
 }
 
-//onclick load saved canvas image
 function load(){
   var img = new Image();
   img.src = window.localStorage.canvasImage;
@@ -87,8 +62,6 @@ function load(){
   }
 }
 
-//clear canvas onclick
-// restore canvas to blank default
 function clear(){
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
