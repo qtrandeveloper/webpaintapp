@@ -9,9 +9,9 @@ function resize() {
 
 // add event listeners to specify when functions should be triggered
 window.addEventListener('resize', resize);
-document.addEventListener('mousemove', draw);
-document.addEventListener('mousedown', setPosition);
-document.addEventListener('mouseenter', setPosition);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', setPosition);
+canvas.addEventListener('mouseenter', setPosition);
 
 // last known position
 var pos = { x: 0, y: 0 };
@@ -34,6 +34,7 @@ function draw(e) {
   setPosition(e);
   ctx.lineTo(pos.x, pos.y);
   ctx.stroke();
+  ctx.closePath();
  }
 
  function erase(e){
@@ -47,6 +48,7 @@ function draw(e) {
    setPosition(e);
    ctx.lineTo(pos.x, pos.y);
    ctx.stroke();
+   ctx.closePath();
  }
 
 function saveCanvas(){
