@@ -3,22 +3,21 @@
   <head>
       <meta charset="utf-8" />
       <title>
-    Web Paint by Que Tran
+    Web Paint
       </title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
 <body>
   <div class="row">
-    <input id="hex" placeholder="enter hex color" value="#000000"/>
-    <input id="line" placeholder="line width" value="10"/>
-    <input type="button" value="Erase" onclick="erase()"/>
-    <input type="button" value="Save" onclick="saveCanvas()"/>
-    <input type="button" value="Load" onclick="load()"/>
-    <input type="button" value="Clear Canvas" onclick="clear()"/>
+      <input id="hex" placeholder="enter hex color" value="#000000"/>
+      <input id="line" placeholder="line width" value="10"/>
+      <input type="button" value="Erase" id="erase"/>
+      <input type="button" value="Save" id="save"/>
+      <input type="button" value="Load" id="load" />
+      <input type="button" value="Clear Canvas" id="clear"/>
     </div>
-    <canvas id="draw"></canvas>
-
+        <canvas id="draw"></canvas>
   <script src="app.js"></script>
 </body>
 
