@@ -13,10 +13,10 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousedown', setPosition);
 canvas.addEventListener('mouseenter', setPosition);
 
-document.getElementById('erase').addEventListener('click', erase)
-document.getElementById('save').addEventListener('click', save)
-document.getElementById('load').addEventListener('click', load)
-document.getElementById('clear').addEventListener('click', clear)
+document.getElementById('erase').addEventListener('click', eraseCanvas)
+document.getElementById('save').addEventListener('click', saveCanvas)
+document.getElementById('load').addEventListener('click', loadCanvas)
+document.getElementById('clear').addEventListener('click', clearCanvas)
 // on blur change stroke style to the color of the hex input
 document.getElementById('hex').addEventListener('blur', changeStrokeStyle)
 
@@ -52,7 +52,7 @@ function draw(e) {
  ctx.closePath();
 }
 
-function erase(e){
+function eraseCanvas(e){
  //remove everything but the strokeStyle change
   ctx.strokeStyle = '#ffffff'
 }
@@ -62,7 +62,7 @@ function saveCanvas(){
  window.localStorage.canvasImage = canvas.toDataURL();
 }
 
-function load(){
+function loadCanvas(){
  var img = new Image();
  img.src = window.localStorage.canvasImage;
  img.onload = function() {
@@ -70,6 +70,6 @@ function load(){
  }
 }
 
-function clear(){
+function clearCanvas(){
  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
