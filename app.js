@@ -25,8 +25,8 @@ var pos = { x: 0, y: 0 };
 
 // new position from mouse events
 function setPosition(e) {
- pos.x = e.clientX;
- pos.y = e.clientY;
+ pos.x = e.offsetX;
+ pos.y = e.offsetY;
 }
 
 // change stroke style to the color of the hex input
